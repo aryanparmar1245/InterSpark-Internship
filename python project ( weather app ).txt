@@ -1,0 +1,50 @@
+                                              ::  PYTHON PROJECT 1 :: 
+                                              ::    WEATHER APP   :: 
+
+
+firstly : 
+
+1): we created the project : weather app:
+2): we imported requests using : ( pip install requests : (in terminal) ):
+3): we generated API KEY in (weatherApi.org) :
+4): then we input the code given and run the app:
+
+  Code ::
+
+ import requests
+
+ API_KEY = "6519c067e7949800f25d0a6d843f59a0"
+
+ city = input("Enter city name: ")
+
+ url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
+
+ response = requests.get(url)
+
+ print(response.text)   # DEBUGGING
+
+ data = response.json()
+
+ if response.status_code == 200:
+
+    temperature = data["main"]["temp"]
+    weather = data["weather"][0]["description"]
+    humidity = data["main"]["humidity"]
+
+    print(f"\nWeather in {city}")
+    print(f"Temperature: {temperature}°C")
+    print(f"Condition: {weather}")
+    print(f"Humidity: {humidity}%")
+
+ else:
+    print("\nError occurred")
+
+
+:::: And hence, our weather app is ready :: 
+
+ Expected result::
+
+     : weather in Ahmedabad .
+     : Temperature: 38 c
+     : Condition: haze
+     : Condition: 28%. 
